@@ -13,6 +13,7 @@ import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.paul.tutorialmod.block.ModBlocks;
 import net.paul.tutorialmod.component.ModDataComponentTypes;
+import net.paul.tutorialmod.effect.ModEffects;
 import net.paul.tutorialmod.item.ModItemGroups;
 import net.paul.tutorialmod.item.ModItems;
 import net.paul.tutorialmod.sound.ModSounds;
@@ -33,9 +34,11 @@ public class TutorialMod implements ModInitializer {
 		ModBlocks.registerModBlocks();
 
 		ModDataComponentTypes.registerDataComponentTypes();
+		ModSounds.registerSounds();
+
+		ModEffects.registerEffects();
 
 		FuelRegistry.INSTANCE.add(ModItems.STARLIGHT_ASHES, 600);
-		ModSounds.registerSounds();
 
 		PlayerBlockBreakEvents.BEFORE.register(new HammerUsageEvent());
 		AttackEntityCallback.EVENT.register((player, world, hand, entity, hitResult) -> {
